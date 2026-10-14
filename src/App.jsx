@@ -11,68 +11,32 @@ import {
 const questions = [
   {
     eyebrow: 'SEU OBJETIVO',
-    title: 'O que você mais gostaria de melhorar na sua rotina bucal?',
-    subtitle: 'Não existe resposta certa. Queremos entender o que é importante para você.',
+    title: 'O que você quer melhorar primeiro?',
+    subtitle: 'Escolha uma opção e vamos direto ao ponto.',
     options: [
-      { label: 'Ter mais tranquilidade ao conversar de perto', icon: Smile },
-      { label: 'Ficar mais à vontade nos momentos românticos', icon: Heart },
       { label: 'Cuidar melhor do hálito pela manhã', icon: Sun },
-      { label: 'Criar uma rotina de higiene mais consistente', icon: ClipboardCheck }
+      { label: 'Ficar mais à vontade ao conversar de perto', icon: Smile },
+      { label: 'Criar uma rotina bucal mais consistente', icon: ClipboardCheck }
     ]
   },
   {
-    eyebrow: 'NO DIA A DIA',
-    title: 'Em quais momentos você gostaria de se sentir mais à vontade?',
-    subtitle: 'Escolha a situação que mais combina com o que você busca.',
+    eyebrow: 'SUA ROTINA',
+    title: 'Como costuma ser sua manhã?',
+    subtitle: 'Sem julgamentos — é só para adaptar a orientação.',
     options: [
-      { label: 'Conversando de perto com outras pessoas', icon: Smile },
-      { label: 'Ao beijar meu namorado ou minha namorada', icon: Heart },
-      { label: 'No trabalho, na escola ou em reuniões', icon: BookOpen },
-      { label: 'Em qualquer momento do dia', icon: Sparkles }
+      { label: 'Já faço minha higiene bucal ao acordar', icon: CheckCircle2 },
+      { label: 'Costumo estar com pressa', icon: Clock3 },
+      { label: 'Quero organizar melhor meus cuidados', icon: Leaf }
     ]
   },
   {
-    eyebrow: 'SUA MANHÃ',
-    title: 'Como costuma ser sua rotina quando você acorda?',
-    subtitle: 'A ideia é conhecer seus hábitos atuais, sem julgamentos.',
+    eyebrow: 'SEU GUIA',
+    title: 'O que deixaria tudo mais fácil para você?',
+    subtitle: 'Última pergunta. Leva só alguns segundos.',
     options: [
-      { label: 'Faço minha higiene bucal antes de começar o dia', icon: CheckCircle2 },
-      { label: 'Às vezes saio com pressa e deixo algo para depois', icon: Clock3 },
-      { label: 'Ainda não tenho uma rotina bem definida', icon: Sun },
-      { label: 'Quero aprender mais sobre os cuidados com a língua', icon: Leaf }
-    ]
-  },
-  {
-    eyebrow: 'ANTES DE DORMIR',
-    title: 'E à noite, como você cuida da sua higiene bucal?',
-    subtitle: 'Pequenos hábitos podem ser mais fáceis de manter quando estão organizados.',
-    options: [
-      { label: 'Tenho uma rotina que costumo seguir', icon: Moon },
-      { label: 'Às vezes esqueço algum cuidado', icon: Clock3 },
-      { label: 'Minha rotina muda bastante de um dia para outro', icon: Sparkles },
-      { label: 'Quero organizar melhor os cuidados da noite', icon: ClipboardCheck }
-    ]
-  },
-  {
-    eyebrow: 'O QUE FUNCIONA PARA VOCÊ',
-    title: 'O que mais ajudaria você a manter uma rotina?',
-    subtitle: 'Vamos pensar em algo prático para o seu dia a dia.',
-    options: [
-      { label: 'Um checklist fácil de consultar', icon: ClipboardCheck },
-      { label: 'Um plano organizado por 30 dias', icon: CalendarCheck },
-      { label: 'Dicas curtas para manhã e noite', icon: Sun },
-      { label: 'Um guia completo para consultar no celular', icon: Smartphone }
-    ]
-  },
-  {
-    eyebrow: 'SEU PROGRESSO',
-    title: 'Como você prefere acompanhar seus hábitos?',
-    subtitle: 'Escolha o formato que deixaria sua rotina mais simples.',
-    options: [
-      { label: 'Marcando tarefas concluídas', icon: Check },
-      { label: 'Acompanhando um plano diário', icon: CalendarCheck },
-      { label: 'Lendo dicas curtas e práticas', icon: BookOpen },
-      { label: 'Com checklist e guia de consulta', icon: ClipboardCheck }
+      { label: 'Um checklist simples', icon: ClipboardCheck },
+      { label: 'Dicas curtas para o dia a dia', icon: Sun },
+      { label: 'Um plano organizado para acompanhar por 30 dias', icon: CalendarCheck }
     ]
   }
 ];
@@ -139,7 +103,7 @@ function Quiz({ onFinish, onClose }) {
 }
 
 function Result({ onOffer, answers }) {
-  const chosen = answers[4];
+  const chosen = answers[2];
   const headline = chosen === 1 ? 'Um plano simples pode ajudar você a manter o ritmo.' :
     chosen === 0 ? 'Vamos deixar sua rotina mais fácil de acompanhar.' :
     chosen === 2 ? 'Pequenos cuidados podem caber na sua manhã.' :
@@ -247,9 +211,9 @@ export default function App() {
             <div className="hero-content">
               <motion.div className="hero-copy" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .55 }}>
                 <div className="eyebrow-pill"><span className="status-dot" /> QUIZ GRATUITO • CERCA DE 1 MINUTO</div>
-                <h1>Uma manhã mais leve começa com <em>bons hábitos.</em></h1>
-                <p>Descubra quais hábitos você pode organizar para cuidar da sua rotina bucal — com orientações práticas, sem julgamentos e no seu ritmo.</p>
-                <div className="hero-actions"><button className="button button-primary button-large" onClick={startQuiz}>Descobrir meu próximo passo <ArrowRight size={18} /></button><span className="micro-trust"><ShieldCheck size={15} /> Gratuito · Rápido · Educativo</span></div>
+                <h1>Cuide melhor do seu hálito, <em>começando hoje.</em></h1>
+                <p>Responda a 3 perguntas rápidas e veja por onde começar. Simples, direto e sem complicação.</p>
+                <div className="hero-actions"><button className="button button-primary button-large" onClick={startQuiz}>Começar quiz grátis <ArrowRight size={18} /></button><span className="micro-trust"><ShieldCheck size={15} /> 3 perguntas · Grátis · Rápido</span></div>
                 <div className="hero-social-proof"><div className="avatar-stack"><span>☀</span><span>✓</span><span>✦</span></div><span>Comece com pequenos passos, um dia de cada vez.</span></div>
               </motion.div>
               <motion.div className="hero-visual" initial={{ opacity: 0, scale: .96, y: 12 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: .65, delay: .12 }}>
