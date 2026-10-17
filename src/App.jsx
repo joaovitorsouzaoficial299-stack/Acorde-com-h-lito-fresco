@@ -136,38 +136,37 @@ function Result({ onOffer, answers }) {
 
 function Offer({ onCheckout }) {
   return <motion.section className="offer-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-    <div className="offer-nav"><Brand /><span className="secure-label"><ShieldCheck size={15} /> Conteúdo digital educativo</span></div>
+    <div className="offer-nav"><Brand /><span className="secure-label"><ShieldCheck size={15} /> Guia educativo</span></div>
     <section className="offer-hero">
       <div className="offer-copy">
-        <span className="eyebrow"><Sparkles size={14} /> SEU PLANO DE CUIDADOS</span>
-        <h1>Uma rotina mais consciente começa com <em>pequenos hábitos.</em></h1>
-        <p>Conheça o Acorde com Hálito Fresco: um guia educativo para organizar seus cuidados bucais, com checklists e um plano de acompanhamento de 30 dias.</p>
-        <div className="offer-price-row"><div><span className="price-caption">PACOTE DIGITAL COMPLETO</span><div className="price">R$ 29,90</div></div><span className="one-time">Pagamento único<br />a configurar</span></div>
-        <button className="button button-primary button-wide" onClick={onCheckout}>Quero conhecer o pacote <ArrowRight size={18} /></button>
-        <div className="safe-note"><LockKeyhole size={14} /> O checkout seguro será conectado na próxima etapa.</div>
+        <span className="eyebrow">SEU GUIA PRÁTICO</span>
+        <h1>Cuide da sua rotina bucal com <em>mais simplicidade.</em></h1>
+        <p>Um material educativo para ajudar você a organizar os cuidados da manhã e da noite, sem complicação e no seu ritmo.</p>
+        <div className="offer-price-row"><div><span className="price-caption">ACESSO AO PACOTE DIGITAL</span><div className="price">R$ 29,90</div></div><span className="one-time">Pagamento único<br />checkout em configuração</span></div>
+        <button className="button button-primary button-wide" onClick={onCheckout}>Quero conhecer o guia <ArrowRight size={18} /></button>
+        <div className="safe-note">Conteúdo educativo; não substitui avaliação odontológica.</div>
       </div>
-      <div className="product-scene" aria-label="Representação ilustrativa dos materiais digitais">
+      <div className="product-scene" aria-label="Capa ilustrativa do guia digital">
         <div className="scene-glow" />
         <div className="book-mockup">
           <div className="book-top"><span>GUIA EDUCATIVO</span><Leaf size={23} /></div>
           <div className="book-title">ACORDE COM<br /><strong>HÁLITO FRESCO</strong></div>
           <div className="book-line" />
-          <div className="book-subtitle">30 dias de hábitos<br />para uma rotina bucal</div>
+          <div className="book-subtitle">Hábitos simples<br />para sua rotina bucal</div>
           <div className="book-illustration"><Sun size={35} /><span className="illustration-leaf"><Leaf size={44} /></span></div>
-          <div className="book-footer">GUIA • CHECKLIST • ROTINA</div>
+          <div className="book-footer">GUIA • CHECKLIST • 30 DIAS</div>
         </div>
-        <div className="floating-bonus bonus-one"><span className="bonus-symbol"><ClipboardCheck size={20} /></span><span><strong>Checklist</strong><small>Manhã e noite</small></span></div>
-        <div className="floating-bonus bonus-two"><span className="bonus-symbol"><CalendarCheck size={20} /></span><span><strong>Rastreador</strong><small>30 dias</small></span></div>
       </div>
     </section>
-    <section className="included-section section">
-      <div className="section-heading"><span className="eyebrow">O QUE VOCÊ RECEBE</span><h2>Materiais práticos para acompanhar sua rotina</h2><p>Quatro recursos digitais para consultar e colocar seus hábitos em prática.</p></div>
-      <div className="benefit-grid">{benefits.map(({ icon: Icon, title, text }, i) => <article className="benefit-card" key={title}><div className="benefit-icon"><Icon size={23} /></div><span className="benefit-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+    <section className="included-section section compact-included">
+      <div className="section-heading"><span className="eyebrow">O QUE ESTÁ INCLUÍDO</span><h2>O essencial para se organizar</h2></div>
+      <div className="benefit-grid">
+        <article className="benefit-card"><div className="benefit-icon"><BookOpen size={22} /></div><h3>Guia educativo</h3><p>Orientações simples sobre cuidados bucais.</p></article>
+        <article className="benefit-card"><div className="benefit-icon"><ClipboardCheck size={22} /></div><h3>Checklist diário</h3><p>Um lembrete para manhã e noite.</p></article>
+        <article className="benefit-card"><div className="benefit-icon"><CalendarCheck size={22} /></div><h3>Plano de 30 dias</h3><p>Acompanhe a consistência dos seus hábitos.</p></article>
+      </div>
     </section>
-    <section className="routine-band"><div><span className="eyebrow">SEU RITMO, SEU PROGRESSO</span><h2>Mais organização.<br /><em>Menos complicação.</em></h2></div><p>Use os materiais como apoio para construir uma rotina consistente. Acompanhe seus hábitos sem pressão e adapte as orientações à sua realidade.</p></section>
-    <section className="faq-section section"><div className="section-heading"><span className="eyebrow">DÚVIDAS FREQUENTES</span><h2>Antes de começar</h2></div><Faq /></section>
-    <section className="final-cta"><span className="eyebrow">ACORDE COM HÁLITO FRESCO</span><h2>Comece organizando os pequenos hábitos.</h2><p>Um pacote digital educativo para acompanhar sua rotina bucal por 30 dias.</p><div className="final-price">R$ 29,90</div><button className="button button-light" onClick={onCheckout}>Quero acessar o pacote <ArrowRight size={18} /></button></section>
-    <footer className="footer offer-footer"><Brand light /><p>Material educativo. Não substitui avaliação ou orientação de um cirurgião-dentista. Não há promessa de eliminação do mau hálito em prazo determinado.</p><span>© {new Date().getFullYear()} Acorde com Hálito Fresco</span></footer>
+    <footer className="footer offer-footer"><Brand light /><p>Material educativo. Não promete eliminar o mau hálito e não substitui avaliação de um cirurgião-dentista.</p><span>© {new Date().getFullYear()} Acorde com Hálito Fresco</span></footer>
   </motion.section>;
 }
 
@@ -188,18 +187,12 @@ export default function App() {
   const [checkoutModal, setCheckoutModal] = useState(false);
   function finishQuiz(data) {
     setAnswers(data);
-    setView('result');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  function showOffer() {
     setView('offer');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
   return <div id="top" className="app-shell">
     <AnimatePresence mode="wait">
       {view === 'quiz' ? <Quiz key="quiz" onFinish={finishQuiz} /> :
-       view === 'result' ? <div key="result"><header className="site-header"><Brand /><button className="text-button" onClick={() => { setAnswers({}); setView('quiz'); }}>Refazer quiz</button></header><Result answers={answers} onOffer={showOffer} /></div> :
        <Offer key="offer" onCheckout={() => setCheckoutModal(true)} />}
     </AnimatePresence>
     <AnimatePresence>{checkoutModal && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCheckoutModal(false)}><motion.div className="checkout-modal" initial={{ opacity: 0, y: 16, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10 }} onClick={e => e.stopPropagation()}><button className="modal-close" onClick={() => setCheckoutModal(false)} aria-label="Fechar"><X size={19} /></button><div className="modal-icon"><LockKeyhole size={24} /></div><span className="eyebrow">PRÓXIMA ETAPA</span><h2>Vamos preparar seu acesso.</h2><p>A página de oferta já está pronta. Para receber pagamentos e liberar os arquivos automaticamente, precisamos conectar um checkout real.</p><div className="modal-price"><span>Pacote digital</span><strong>R$ 29,90</strong></div><button className="button button-primary button-wide" onClick={() => setCheckoutModal(false)}>Entendi <Check size={17} /></button><small>Nenhuma cobrança será feita nesta versão de demonstração.</small></motion.div></motion.div>}</AnimatePresence>
