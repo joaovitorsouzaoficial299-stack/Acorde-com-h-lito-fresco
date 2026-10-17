@@ -198,10 +198,9 @@ export default function App() {
 
   return <div id="top" className="app-shell">
     <AnimatePresence mode="wait">
-      {view === 'quiz' ? <Quiz key="quiz" onFinish={finishQuiz} onClose={() => setView('landing')} /> :
+      {view === 'quiz' ? <Quiz key="quiz" onFinish={finishQuiz} /> :
        view === 'result' ? <div key="result"><header className="site-header"><Brand /><button className="text-button" onClick={() => { setAnswers({}); setView('quiz'); }}>Refazer quiz</button></header><Result answers={answers} onOffer={showOffer} /></div> :
-       <Offer key="offer" onCheckout={() => setCheckoutModal(true)} />
-       </motion.div>}
+       <Offer key="offer" onCheckout={() => setCheckoutModal(true)} />}
     </AnimatePresence>
     <AnimatePresence>{checkoutModal && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCheckoutModal(false)}><motion.div className="checkout-modal" initial={{ opacity: 0, y: 16, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10 }} onClick={e => e.stopPropagation()}><button className="modal-close" onClick={() => setCheckoutModal(false)} aria-label="Fechar"><X size={19} /></button><div className="modal-icon"><LockKeyhole size={24} /></div><span className="eyebrow">PRÓXIMA ETAPA</span><h2>Vamos preparar seu acesso.</h2><p>A página de oferta já está pronta. Para receber pagamentos e liberar os arquivos automaticamente, precisamos conectar um checkout real.</p><div className="modal-price"><span>Pacote digital</span><strong>R$ 29,90</strong></div><button className="button button-primary button-wide" onClick={() => setCheckoutModal(false)}>Entendi <Check size={17} /></button><small>Nenhuma cobrança será feita nesta versão de demonstração.</small></motion.div></motion.div>}</AnimatePresence>
   </div>;
