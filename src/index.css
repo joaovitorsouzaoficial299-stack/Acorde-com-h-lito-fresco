@@ -43,3 +43,34 @@
  .quiz-question{padding-top:22px}
  .quiz-option{font-size:13px;padding:14px;min-height:54px}
 }
+/* Quiz-first landing experience */
+.quiz-shell{min-height:100vh;background:radial-gradient(ellipse at 85% 8%,#e3efe3 0,transparent 35%),linear-gradient(150deg,#fbfaf6 0%,#f2f6ef 100%);padding-bottom:40px}
+.quiz-topbar{max-width:1060px;margin:0 auto;padding:24px 28px;display:flex;align-items:center;justify-content:space-between}
+.icon-button{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;border:1px solid #e1e8df;background:#fffefa;color:#567364}
+.quiz-wrap{max-width:620px;margin:18px auto 0;padding:0 22px}
+.quiz-progress-copy{display:flex;justify-content:space-between;gap:12px;color:#7b9180;font-size:10px;letter-spacing:.11em;font-weight:800;margin-bottom:11px}
+.progress-track{height:5px;background:#e2eae0;border-radius:99px;overflow:hidden;margin-bottom:29px}
+.progress-fill{height:100%;background:linear-gradient(90deg,#6f9d79,#b0cf9e);border-radius:99px}
+.quiz-question h1{font-size:clamp(30px,5vw,43px);line-height:1.12;letter-spacing:-.045em;color:#193b30;margin:12px 0 10px}
+.quiz-subtitle{font-size:14px;line-height:1.7;color:#708176;margin-bottom:20px}
+.quiz-visual{height:190px;position:relative;border-radius:23px;overflow:hidden;margin-bottom:25px;background:#dfeadf;box-shadow:0 15px 35px #1a4a2d10}
+.quiz-visual>img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 40%}
+.quiz-visual-shade{position:absolute;inset:0;background:linear-gradient(90deg,#102d23c9 0%,#102d234a 56%,transparent 100%)}
+.quiz-visual-copy{position:absolute;left:20px;bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;color:white;max-width:72%;text-shadow:0 1px 8px #102d2355}
+.quiz-visual-mark{display:grid;place-items:center;width:32px;height:32px;border-radius:11px;background:#eff7e8;color:#2e6645;margin-bottom:3px}
+.quiz-visual-copy strong{font-family:'Manrope',sans-serif;font-size:19px;line-height:1.2;letter-spacing:-.025em}
+.quiz-visual-copy small{font-size:11px;line-height:1.4;color:#f3f7f0}
+.quiz-visual-tag{position:absolute;top:14px;right:14px;display:flex;align-items:center;gap:5px;padding:8px 10px;border:1px solid #ffffff80;border-radius:99px;background:#ffffffd9;color:#315b43;font-size:8px;letter-spacing:.08em;font-weight:800}
+.quiz-options{display:grid;gap:10px}
+.quiz-option{display:flex;align-items:center;gap:12px;width:100%;min-height:67px;text-align:left;padding:13px 15px;border:1px solid #e1e8df;border-radius:16px;background:#fffefa;color:#405c4e;font-size:13px;line-height:1.45;box-shadow:0 4px 14px #1b3e2b05;transition:border .2s,background .2s,transform .2s}
+.quiz-option:hover{border-color:#a9c7a9;transform:translateY(-1px)}
+.quiz-option.selected{border-color:#6e9e7a;background:#eef5eb;box-shadow:0 0 0 2px #d6e7d4}
+.option-icon{width:39px;height:39px;flex-shrink:0;display:grid;place-items:center;border-radius:13px;background:#e9f1e6;color:#548064}
+.option-check{display:grid;place-items:center;margin-left:auto;flex-shrink:0;width:23px;height:23px;border:1px solid #d9e3d7;border-radius:50%;color:white}
+.quiz-option.selected .option-check{background:#477b57;border-color:#477b57}
+.quiz-controls{display:flex;justify-content:space-between;gap:12px;margin-top:23px}
+.quiz-controls .button{min-height:49px}
+.privacy-note{display:flex;align-items:center;justify-content:center;gap:7px;text-align:center;color:#87968b;font-size:10px;line-height:1.5;margin:20px 0 0}
+.brand-mark{color:#3e7850}
+.brand-mark svg{fill:#6eaa76;stroke:#2f6742}
+@media(max-width:600px){.quiz-topbar{padding:17px 18px}.quiz-wrap{margin-top:8px;padding:0 18px}.progress-track{margin-bottom:22px}.quiz-visual{height:165px;border-radius:19px;margin-bottom:22px}.quiz-visual-copy{left:16px;bottom:15px}.quiz-visual-copy strong{font-size:17px}.quiz-visual-tag{top:10px;right:10px;font-size:7px;padding:7px 8px}.quiz-question h1{font-size:32px}.quiz-subtitle{font-size:13px}.quiz-option{min-height:64px;padding:11px 12px;font-size:12px}.option-icon{width:36px;height:36px}.quiz-controls .button{padding:13px 15px;font-size:12px}.privacy-note{font-size:9px}}
