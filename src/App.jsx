@@ -50,7 +50,7 @@ const benefits = [
 
 function Brand({ light = false }) {
   return <a className={`brand ${light ? 'brand-light' : ''}`} href="#top" aria-label="Acorde com Hálito Fresco, início">
-    <span className="brand-mark"><Leaf size={20} strokeWidth={2.1} /></span>
+    <span className="brand-mark"><Leaf size={22} strokeWidth={2.2} fill="currentColor" /></span>
     <span className="brand-name">acorde com <strong>hálito fresco</strong></span>
   </a>;
 }
@@ -61,6 +61,11 @@ function Quiz({ onFinish, onClose }) {
   const current = questions[step];
   const selected = answers[step];
   const progress = ((step + 1) / questions.length) * 100;
+  const quizVisuals = [
+    { image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85', alt: 'Mulher sorrindo com naturalidade', label: 'Mais tranquilidade nas conversas', note: 'Cuidados possíveis, sem julgamentos.' },
+    { image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85', alt: 'Pessoas conversando em um ambiente descontraído', label: 'Cada rotina é diferente', note: 'Encontre hábitos que cabem no seu dia.' },
+    { image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=85', alt: 'Cuidados pessoais em uma rotina de bem-estar', label: 'Pequenos passos contam', note: 'Organize sua rotina no seu ritmo.' }
+  ];
 
   function next() {
     if (selected === undefined) return;
@@ -78,6 +83,12 @@ function Quiz({ onFinish, onClose }) {
       <div className="progress-track"><motion.div className="progress-fill" animate={{ width: `${progress}%` }} transition={{ duration: .35 }} /></div>
       <AnimatePresence mode="wait">
         <motion.div key={step} className="quiz-question" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: .2 }}>
+          <div className="quiz-visual">
+            <img src={quizVisuals[step].image} alt={quizVisuals[step].alt} />
+            <div className="quiz-visual-shade" />
+            <div className="quiz-visual-copy"><span className="quiz-visual-mark"><Leaf size={17} /></span><strong>{quizVisuals[step].label}</strong><small>{quizVisuals[step].note}</small></div>
+            <span className="quiz-visual-tag"><Leaf size={13} /> CUIDADO COM CARINHO</span>
+          </div>
           <span className="eyebrow">{current.eyebrow}</span>
           <h1>{current.title}</h1>
           <p className="quiz-subtitle">{current.subtitle}</p>
@@ -173,7 +184,7 @@ function Faq() {
 }
 
 export default function App() {
-  const [view, setView] = useState('landing');
+  const [view, setView] = useState('quiz');
   const [answers, setAnswers] = useState({});
   const [checkoutModal, setCheckoutModal] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
