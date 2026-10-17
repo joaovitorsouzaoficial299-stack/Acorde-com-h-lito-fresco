@@ -62,9 +62,9 @@ function Quiz({ onFinish }) {
   const selected = answers[step];
   const progress = ((step + 1) / questions.length) * 100;
   const quizVisuals = [
-    { image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85', alt: 'Mulher sorrindo com naturalidade', label: 'Mais tranquilidade nas conversas', note: 'Cuidados possíveis, sem julgamentos.' },
-    { image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85', alt: 'Pessoas conversando em um ambiente descontraído', label: 'Cada rotina é diferente', note: 'Encontre hábitos que cabem no seu dia.' },
-    { image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=85', alt: 'Cuidados pessoais em uma rotina de bem-estar', label: 'Pequenos passos contam', note: 'Organize sua rotina no seu ritmo.' }
+    { image: 'https://images.unsplash.com/photo-1527167484260-43ca4f1cc204?auto=format&fit=crop&w=900&q=85', alt: 'Homem preocupado e cobrindo a boca ao pensar no hálito', label: 'Insegurança com o hálito?', note: 'Você não precisa lidar com isso sozinho.' },
+    { image: 'https://images.unsplash.com/photo-1530210138768-d5ee88d3b482?auto=format&fit=crop&w=900&q=85', alt: 'Mulher cobrindo a boca em um momento de preocupação com o hálito', label: 'É comum ficar preocupado', note: 'Entenda hábitos que podem ajudar na rotina.' },
+    { image: 'https://images.unsplash.com/photo-1693692282136-2eeb24c11856?auto=format&fit=crop&w=900&q=85', alt: 'Mulher escovando os dentes no banheiro', label: 'Cuidados bucais no dia a dia', note: 'Organize uma rotina simples e consistente.' }
   ];
 
   function next() {
