@@ -9,36 +9,41 @@ import {
 } from 'lucide-react';
 
 const questions = [
-  {
-    eyebrow: 'SEU OBJETIVO',
-    title: 'O que você quer melhorar primeiro?',
-    subtitle: 'Escolha uma opção e vamos direto ao ponto.',
-    options: [
-      { label: 'Cuidar melhor do hálito pela manhã', icon: Sun },
-      { label: 'Ficar mais à vontade ao conversar de perto', icon: Smile },
-      { label: 'Criar uma rotina bucal mais consistente', icon: ClipboardCheck }
-    ]
-  },
-  {
-    eyebrow: 'SUA ROTINA',
-    title: 'Como costuma ser sua manhã?',
-    subtitle: 'Sem julgamentos — é só para adaptar a orientação.',
-    options: [
-      { label: 'Já faço minha higiene bucal ao acordar', icon: CheckCircle2 },
-      { label: 'Costumo estar com pressa', icon: Clock3 },
-      { label: 'Quero organizar melhor meus cuidados', icon: Leaf }
-    ]
-  },
-  {
-    eyebrow: 'SEU GUIA',
-    title: 'O que deixaria tudo mais fácil para você?',
-    subtitle: 'Última pergunta. Leva só alguns segundos.',
-    options: [
-      { label: 'Um checklist simples', icon: ClipboardCheck },
-      { label: 'Dicas curtas para o dia a dia', icon: Sun },
-      { label: 'Um plano organizado para acompanhar por 30 dias', icon: CalendarCheck }
-    ]
-  }
+  { eyebrow: 'SEU OBJETIVO', title: 'O que você mais quer melhorar?', subtitle: 'Escolha o que faria mais diferença no seu dia a dia.', options: [
+    { label: 'Acordar mais confiante com meu hálito', icon: Sun },
+    { label: 'Ficar mais à vontade em conversas de perto', icon: Smile },
+    { label: 'Ter uma rotina de cuidados mais organizada', icon: ClipboardCheck }
+  ]},
+  { eyebrow: 'QUANDO ACONTECE', title: 'Em qual momento isso mais preocupa você?', subtitle: 'Não existe resposta certa — queremos entender sua preocupação.', options: [
+    { label: 'Principalmente quando acordo', icon: Sun },
+    { label: 'Ao longo do dia', icon: Clock3 },
+    { label: 'Antes de conversar de perto com alguém', icon: Heart }
+  ]},
+  { eyebrow: 'SUA MANHÃ', title: 'Como costuma ser sua rotina ao acordar?', subtitle: 'Pense no que você realmente consegue fazer hoje.', options: [
+    { label: 'Tenho tempo para cuidar de mim com calma', icon: CheckCircle2 },
+    { label: 'Faço tudo correndo', icon: Clock3 },
+    { label: 'Ainda não tenho uma rotina definida', icon: ClipboardCheck }
+  ]},
+  { eyebrow: 'HÁBITOS ATUAIS', title: 'Quais cuidados já fazem parte da sua rotina?', subtitle: 'Marque a opção que mais se aproxima do seu dia a dia.', options: [
+    { label: 'Escovo os dentes e uso fio dental regularmente', icon: CheckCircle2 },
+    { label: 'Escovo os dentes, mas nem sempre mantenho os outros cuidados', icon: Smile },
+    { label: 'Quero entender melhor quais hábitos incluir', icon: BookOpen }
+  ]},
+  { eyebrow: 'O QUE ATRAPALHA', title: 'O que mais dificulta manter esses cuidados?', subtitle: 'A ideia é encontrar uma forma prática de se organizar.', options: [
+    { label: 'Falta de tempo ou pressa', icon: Clock3 },
+    { label: 'Esqueço ou não consigo manter a constância', icon: CalendarCheck },
+    { label: 'Tenho dúvidas sobre como organizar os cuidados', icon: CircleHelp }
+  ]},
+  { eyebrow: 'O QUE VOCÊ PROCURA', title: 'Que tipo de ajuda seria mais útil para você?', subtitle: 'Escolha o formato que usaria de verdade.', options: [
+    { label: 'Uma lista simples para consultar todo dia', icon: ClipboardCheck },
+    { label: 'Explicações curtas e fáceis de entender', icon: BookOpen },
+    { label: 'Um plano para acompanhar meus hábitos por 30 dias', icon: CalendarCheck }
+  ]},
+  { eyebrow: 'SEU GUIA', title: 'Como você prefere acompanhar sua rotina?', subtitle: 'Só mais uma escolha para concluir e conhecer o material.', options: [
+    { label: 'No celular, sempre que precisar', icon: Smartphone },
+    { label: 'Com um checklist para marcar o que fiz', icon: CheckCircle2 },
+    { label: 'Com um plano organizado por etapas', icon: CalendarCheck }
+  ]}
 ];
 
 const benefits = [
@@ -83,9 +88,9 @@ function Quiz({ onFinish }) {
       <AnimatePresence mode="wait">
         <motion.div key={step} className="quiz-question" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: .2 }}>
           <div className="quiz-visual">
-            <img src={quizVisuals[step].image} alt={quizVisuals[step].alt} />
+            <img src={quizVisuals[step % quizVisuals.length].image} alt={quizVisuals[step % quizVisuals.length].alt} />
             <div className="quiz-visual-shade" />
-            <div className="quiz-visual-copy"><span className="quiz-visual-mark"><Leaf size={17} /></span><strong>{quizVisuals[step].label}</strong><small>{quizVisuals[step].note}</small></div>
+            <div className="quiz-visual-copy"><span className="quiz-visual-mark"><Leaf size={17} /></span><strong>{quizVisuals[step % quizVisuals.length].label}</strong><small>{quizVisuals[step % quizVisuals.length].note}</small></div>
             <span className="quiz-visual-tag"><Leaf size={13} /> CUIDADO COM CARINHO</span>
           </div>
           <span className="eyebrow">{current.eyebrow}</span>
